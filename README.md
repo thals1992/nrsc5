@@ -19,7 +19,7 @@ This program receives NRSC-5 (HD Radio) digital radio stations using an RTL-SDR 
 
 ### NRSC5-GUI Build
 
-    $ sudo apt install pip3 portaudio19-dev
+    $ sudo apt install pip3 portaudio19-dev libcairo2-dev
     $ pip3 install pyaudio
     $ pip3 install pillow
     $ pip3 install pygobject
