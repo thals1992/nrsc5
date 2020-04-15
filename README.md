@@ -10,12 +10,19 @@ This program receives NRSC-5 (HD Radio) digital radio stations using an RTL-SDR 
     -DUSE_SSE=OFF         Use SSSE3 instructions.
     -DUSE_FAAD2=ON       AAC decoding with FAAD2.
 
-### Compile script
+### NRSC5 Compile script
     
     $ git clone https://github.com/theori-io/nrsc5.git
     $ sudo apt install mingw-w64 libtool autoconf cmake
     $ support/win-cross-compile 64
     $ support/win-cross-compile 32
+
+### NRSC5-GUI Build
+
+    $ sudo apt install pip3 portaudio19-dev
+    $ pip3 install pyaudio
+    $ pip3 install pillow
+    $ pip3 install pygobject
 
 Once the build was completed, I copied `libnrsc5.dll` and `nrsc5.exe` from the `build-win32/bin` and the `build-win64/bin` folder to this git.
 
