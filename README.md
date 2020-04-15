@@ -1,19 +1,23 @@
 # NRSC-5 Binaries
 
-This program receives NRSC-5 digital radio stations using an RTL-SDR dongle. It offers a command-line interface as well as an API upon which other applications can be built. Before using it, you'll first need to compile the program using the build instructions below.
+This program receives NRSC-5 (HD Radio) digital radio stations using an RTL-SDR dongle. It offers a command-line interface as well as an API upon which other applications can be built. Before using it, you'll first need to compile the program using the build instructions below.
 
-## Built using Ubuntu WSL on Windows 1909. 
-Used the default options.
-    -DUSE_COLOR=OFF       Colorize log output. 
-    -DUSE_NEON=OFF        Use NEON instructions. 
-    -DUSE_SSE=OFF         Use SSSE3 instructions. 
-    -DUSE_FAAD2=ON       AAC decoding with FAAD2. [default=ON]
+### Built using Ubuntu WSL on Windows 1909. 
+    Used the default options.
+    
+    -DUSE_COLOR=OFF       Colorize log output.
+    -DUSE_NEON=OFF        Use NEON instructions.
+    -DUSE_SSE=OFF         Use SSSE3 instructions.
+    -DUSE_FAAD2=ON       AAC decoding with FAAD2.
 
 ### Compile script
-    $ sudo apt install mingw-w64
+    
+    $ git clone https://github.com/theori-io/nrsc5.git
+    $ sudo apt install mingw-w64 libtool autoconf cmake
     $ support/win-cross-compile 64
+    $ support/win-cross-compile 32
 
-Replace `32` with `64` if you want a 64-bit build. Once the build is complete, copy `*.dll` and `nrsc5.exe` from the `build-win32/bin` (or `build-win64/bin`) folder to your Windows machine.
+Once the build was completed, I copied `libnrsc5.dll` and `nrsc5.exe` from the `build-win32/bin` and the `build-win64/bin` folder to this git.
 
 ## Usage
 
