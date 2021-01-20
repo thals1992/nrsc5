@@ -20,7 +20,7 @@ This program receives NRSC-5 (HD Radio) digital radio stations using an RTL-SDR 
 ### NRSC5-GUI Build
 
     $ git clone https://github.com/duracell80/nrsc5-gui.git
-    $ sudo apt install python3-pip portaudio19-dev libcairo2-dev libgirepository1.0-dev python3-pyaudio
+    $ sudo apt install python3-pip portaudio19-dev libcairo2-dev libgirepository1.0-dev python3-pyaudio mingw-winpthreads
     $ export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.8/bin"
     $ pip3 install pillow pygobject pyinstaller
     
