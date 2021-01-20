@@ -1,28 +1,29 @@
 # NRSC-5 Binaries
 
-This program receives NRSC-5 (HD Radio) digital radio stations using an RTL-SDR dongle. It offers a command-line interface as well as an API upon which other applications can be built. Before using it, you'll first need to compile the program using the build instructions below.
+This program receives NRSC-5 (HD Radio) digital radio stations using an RTL-SDR dongle. It offers a command-line interface as well as an API upon which other applications can be built (NRSC5-GUI) Before using it, you'll first need to compile the program using the build instructions below.
 
-### Built using Ubuntu WSL on Windows 1909. 
-    Used the default options.
+### Built using Ubuntu WSL on Windows 20H2. Left the DUSE options as is.
     
     -DUSE_COLOR=OFF       Colorize log output.
-    -DUSE_NEON=OFF        Use NEON instructions.
-    -DUSE_SSE=OFF         Use SSSE3 instructions.
-    -DUSE_FAAD2=ON       AAC decoding with FAAD2.
+    -DUSE_NEON=OFF        Use NEON instructions. (ARM)
+    -DUSE_SSE=OFF         Use SSE3 instructions. (x86: Intel P4+ or AMD Athlon XP+)
+    -DUSE_FAAD2=ON        AAC decoding with FAAD2.
 
 ### NRSC5 Compile script
     
     $ git clone https://github.com/theori-io/nrsc5.git
+    $ sudo apt update
     $ sudo apt install mingw-w64 libtool autoconf cmake
     $ support/win-cross-compile 64
     $ support/win-cross-compile 32
 
 ### NRSC5-GUI Build
 
-    $ sudo apt install pip3 portaudio19-dev libcairo2-dev libgirepository1.0-dev
-    $ pip3 install pyaudio
-    $ pip3 install pillow
-    $ pip3 install pygobject
+    $ git clone https://github.com/duracell80/nrsc5-gui.git
+    $ sudo apt install python3-pip portaudio19-dev libcairo2-dev libgirepository1.0-dev python3-pyaudio
+    $ export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.8/bin"
+    $ pip3 install pillow pygobject pyinstaller
+    
 
 Once the build was completed, I copied `libnrsc5.dll` and `nrsc5.exe` from the `build-win32/bin` and the `build-win64/bin` folder to this git.
 
