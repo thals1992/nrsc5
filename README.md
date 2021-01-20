@@ -14,8 +14,10 @@ This program receives NRSC-5 (HD Radio) digital radio stations using an RTL-SDR 
     $ git clone https://github.com/theori-io/nrsc5.git
     $ sudo apt update
     $ sudo apt install mingw-w64 libtool autoconf cmake
+    $ cd nrsc5
     $ support/win-cross-compile 64
     $ support/win-cross-compile 32
+    $ cd ..
 
 ### NRSC5-GUI Build
 
